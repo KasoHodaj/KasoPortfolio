@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: whitesmoke;
+            border-radius: 10px;
+            
+            box-shadow: 0 0 10px rgba(41, 14, 14, 0.699); /*Horizontal / Vertical / Blur Radius / Color */
+            width: 220px;
+        }
+
+        h1{
+            font-family: sans-serif;
+            background-color: #dbd3d3;
+            margin: 0px;
+            padding: 10px;
+            text-align: end;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            font-size: 2rem;
+        }
+
+        #display {
+            font-family: sans-serif;
+            background-color: #dbd3d3;
+            text-align: right;
+            padding: 10px;
+            font-size: 18px;
+            
+            border-bottom: 1px solid #ccc;
+            
+        }
+
+        .box {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+            padding: 10px;
+            
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        #btn0{
+            grid-area: 1 / 4 / 2 / 5;
+        }
+        #btn1{
+            grid-area: 2 / 1 / 3 / 2;
+        }
+        #btn2{
+            grid-area: 2 / 2 / 3 / 3;
+        }
+        #btn3{
+            grid-area: 2 / 3 / 3 / 4;
+        }
+        #btn4{
+            grid-area: 2 / 4 / 3 / 5;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <h1>Calculator</h1>
+        </div>
+        <div id="display">
+            <output id="result">Result</output><br>
+        </div>
+        <div class="box">
+            <input class="text" id="txt1" value="0" />
+            <input class="text" id="txt2" value="0" />
+            <button id="btn0" onclick="deleteNumbers()">AC</button>
+            <button id="btn1" onclick="addNumbers()">Add</button>
+            <button id="btn2" onclick="subNumbers()">Sub</button>
+            <button id="btn3" onclick="mulNumbers()">Mul</button>
+            <button id="btn4" onclick="divNumbers()">Div</button>
+        </div>
+    </div>
+
+    <script>
+        function addNumbers() {
+            let input1 = parseFloat(document.getElementById("txt1").value);
+            let input2 = parseFloat(document.getElementById("txt2").value);
+            sum = input1 + input2;
+            document.getElementById("result").textContent = sum;
+        }
+
+        function subNumbers() {
+            let input1 = parseFloat(document.getElementById("txt1").value);
+            let input2 = parseFloat(document.getElementById("txt2").value);
+            sum = input1 - input2;
+            document.getElementById("result").textContent = sum;
+        }
+
+        function mulNumbers() {
+            let input1 = parseFloat(document.getElementById("txt1").value);
+            let input2 = parseFloat(document.getElementById("txt2").value);
+            sum = input1 * input2;
+            document.getElementById("result").textContent = sum;
+        }
+
+        function divNumbers() {
+            let input1 = parseFloat(document.getElementById("txt1").value);
+            let input2 = parseFloat(document.getElementById("txt2").value);
+
+            if (input2 !== 0) {
+                sum = input1 / input2;
+                document.getElementById("result").textContent = sum;
+            } else {
+                document.getElementById("result").textContent = "Cannot divide by zero";
+            }
+        }
+
+        function deleteNumbers(){
+            document.getElementById("txt1").value = 0;
+            document.getElementById("txt2").value = 0
+            document.getElementById("result").value = "Result";
+        }
+    </script>
+</body>
+
+</html>

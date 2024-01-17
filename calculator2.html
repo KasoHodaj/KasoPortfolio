@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    background-color: #a1a1a1ab;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#container-calculator {
+    background-color: hsl(0, 0%, 15%);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    padding: 3px;
+    width: 20%;
+    overflow: hidden;
+}
+
+label {
+    color: #fff;
+    font-size: 1.5rem;
+    max-width: 100%;
+}
+
+#screen {
+    width: 100%;
+    background-color: hsl(0, 0%, 20%);
+    border: none;
+    text-align: left;
+    padding: 10px;
+    font-size: 2.2rem;
+    color: #fff;
+}
+
+button {
+    padding: 10px 15px; 
+    font-size: 1rem; 
+    font-weight: 500;
+    display: inline-block;
+    text-align: center;
+    line-height: 40px; 
+    cursor: pointer;
+    background-color: hsl(0, 0%, 30%);
+    color: #ffffff;
+    border: 1px solid #191970;
+    border-radius: 8px;
+}
+
+button:hover {
+    background-color: #191970;
+}
+
+button:active {
+    background-color: #0a0a42;
+}
+
+.btn {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+.extra {
+    background-color: rgb(175, 19, 19);
+}
+
+.extra:hover {
+    background-color: rgb(122, 5, 5);
+}
+
+.extra:active {
+    background-color: rgb(87, 4, 4);
+}
+
+.line {
+    background-color: hsl(0, 0%, 22%);
+}
+
+.operator {
+    background-color: rgb(243, 174, 47);
+}
+
+.operator:hover {
+    background-color: rgb(190, 133, 27);
+}
+
+.operator:active {
+    background-color: rgb(161, 111, 18);
+}
+
+.pi {
+    background-color: rgb(94, 153, 6);
+    font-style: italic;
+    font-size: 1rem;
+}
+
+.pi:hover {
+    background-color: rgb(83, 136, 3);
+}
+
+.pi:active {
+    background-color: rgb(62, 100, 4);
+}
+.equals{
+    background-color: rgb(94, 153, 6);
+    font-style: italic;
+    font-size: 1rem;
+}
+.equals:hover{
+    background-color: rgb(83, 136, 3);
+}
+.extra:active{
+    background-color: rgb(62, 100, 4);
+}
+
+@media (max-width: 600px) {
+    #container-calculator {
+        width: 80%;
+    }
+
+    button {
+        font-size: 0.9rem; 
+        padding: 8px 12px; 
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div id="container-calculator" b>
+        <label for="text">Calculator.</label>
+        <input readonly id="screen" placeholder="e.x 1 + 2 = ">
+        <div class="btn">
+            <button id="btn-buttons" class="line" onclick="percentage()">%</button>
+            <button id="btn-buttons" class="line" onclick="modular2()">MOD 2</button>
+            <button id="btn-buttons" class="extra" onclick="clearDisplay()">C</button>
+            <button id="btn-buttons" class="operator" onclick="deletePrevious()">DEL</button>
+            <button id="btn-buttons" class="line"onclick="updateDisplay('1/x')">1/x</button>
+            <button id="btn-buttons" class="line"onclick="updateDisplay('x^2')">x^2</button>
+            <button id="btn-buttons" class="line"onclick="updateDisplay('sqrt(x)')">sqrt(x)</button>
+            <button id="btn-buttons" class="operator" onclick="updateDisplay('/')">/</button>
+            <button id="btn-buttons" onclick="updateDisplay('7')">7</button>
+            <button id="btn-buttons" onclick="updateDisplay('8')">8</button>
+            <button id="btn-buttons" onclick="updateDisplay('9')">9</button>
+            <button id="btn-buttons" class="operator" onclick="updateDisplay('*')">*</button>
+            <button id="btn-buttons" onclick="updateDisplay('4')">4</button>
+            <button id="btn-buttons" onclick="updateDisplay('5')">5</button>
+            <button id="btn-buttons" onclick="updateDisplay('6')">6</button>
+            <button id="btn-buttons" class="operator" onclick="updateDisplay('-')">-</button>
+            <button id="btn-buttons" onclick="updateDisplay('1')">1</button>
+            <button id="btn-buttons" onclick="updateDisplay('2')">2</button>
+            <button id="btn-buttons" onclick="updateDisplay('3')">3</button>
+            <button id="btn-buttons" class="operator" onclick="updateDisplay('+')">+</button>
+            <button id="btn-buttons" onclick="updateDisplay('0')">0</button>
+            <button id="btn-buttons" onclick="updateDisplay('.')">.</button>
+            <button id="btn-buttons" class="equals"onclick="calculate()">=</button>
+            <button id="btn-buttons" class="pi" onclick="toRad()">= Rad</button>
+        </div>
+    </div>
+
+    <script>
+        
+
+const val = document.getElementById("screen");
+
+
+function updateDisplay(input){
+    val.value += input;
+}
+
+function clearDisplay(){
+    val.value = "";
+}
+function deletePrevious(){
+    val.value = val.value.slice(0,-1);
+}
+
+function calculate(){
+    try{
+        val.value = eval(val.value);
+    }catch(error){
+        val.value = "error"
+    } 
+}
+
+function modular2(){
+    val.value = eval(val.value) % 2;
+}
+
+function percentage(){
+    val.value = val.value / 100;
+}
+
+function toRad(){
+    val.value = (val.value * (Math.PI / 180)).toFixed(2) + 'π/180' ;
+}
+
+
+
+    </script>
+</body>
+</html>

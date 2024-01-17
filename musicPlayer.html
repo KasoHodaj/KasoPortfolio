@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-Seasons</title>
+    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+    text-align: center;
+    background-color: rgb(34, 34, 65);
+}
+
+h1{
+    font-size: 4rem;
+    font-family: "Arvo", cursive;
+    color: #DBEDF3;
+    text-shadow: 5px 0 #DA0463;
+}
+.name{
+    color: #DA0463;
+    font-size: larger;
+    font-weight: 600px;
+}
+
+footer{
+    color: #DBEDF3;
+    font-size: 2rem;
+}
+
+.set{
+    margin: 10% auto;
+}
+
+.piece{
+    outline: none;
+    border: 10px solid #404B69;
+    font-size: 2.5rem;
+    font-family: 'Arvo', cursive;
+    line-height: 2;
+    font-weight: 900;
+    color: #DA0463;
+    text-shadow: 3px 0 #DBEDF3;
+    border-radius: 15px;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    margin: 10px;
+    background-color: white;
+}
+
+.one{
+    background-image: url("Images/winter.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.two{
+    background-image: url("Images/spring.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.three{
+    background-image: url("Images/summer.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.four{
+    background-image: url("Images/autumn.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.pressed{
+    box-shadow: 0 3px 0 #DBEDF3;
+    opacity:  0.5;
+}
+h2{
+    color: #DBEDF3;
+    font-family: 'Arvo', cursive;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+    font-weight: 200;
+    
+
+
+}
+
+.refresh{
+    font-size: 1.5rem;
+    font-family: 'Arvo', cursive;
+    font-weight: 200;
+    color: #DBEDF3;
+    background-color: #DA0463;
+    border-radius: 15px;
+    border: 2px solid #DBEDF3;
+}
+
+@media(max-width:600px){
+    .piece{
+        
+        font-size: 2rem;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <h1 class="title">Piano Music</h1>
+    <h2>
+        <span style="color: #DA0463;"><span class="material-symbols-outlined">
+                reminder
+            </span>TIP: </span>
+        One music piece is allowed each time. <br>
+        In order to play a different one try refreshing the page.
+    </h2>
+    <div>
+        <button class="refresh" onClick="window.location.reload();">
+            <span class="material-symbols-outlined">
+                refresh
+            </span>
+            Refresh
+        </button>
+    </div>
+    <div class="set">
+        <button class="one   piece">one</button>
+        <button class="two   piece">two</button>
+        <button class="three piece">three</button>
+        <button class="four  piece">four</button>
+    </div>
+    <script src="index.js"></script>
+</body>
+<footer>
+    Made for fun. <br>
+    By <span class="name">Kaso Hodaj</span>
+</footer>
+
+<script>
+    var btnLength = document.querySelectorAll(".piece").length;
+var isPlaying = false;
+for (var i = 0; i < btnLength; i++) {
+    document.querySelectorAll(".piece")[i].addEventListener("click", function () {
+        var buttonInnerHtml = this.innerHTML;
+        
+        if(!isPlaying){
+            audioPlay(buttonInnerHtml);
+            buttonAnimation(buttonInnerHtml);
+        }        
+    });
+}
+ 
+
+
+function audioPlay(key) {
+    
+    switch (key) {
+        case "one":
+            var audio1 = new Audio('Sound/1.mp3');
+            audio1.play();
+            isPlaying = true;
+            break;
+        case "two":
+            var audio2 = new Audio('Sound/2.mp3');
+            audio2.play();
+            isPlaying = true;
+            break;
+        case "three":
+            var audio3 = new Audio('Sound/3.mp3'); // Declare 'audio3' using 'var'
+            audio3.play();
+            isPlaying = true;
+            break;
+        case "four":
+            var audio4 = new Audio('Sound/4.mp3'); // Declare 'audio4' using 'var'
+            audio4.play();
+            isPlaying = true;
+            break;
+        default:
+            console.log("Unhandled key: " + key);
+    }
+}
+
+function buttonAnimation(key) {
+    var AB = document.querySelector("." + key);
+    AB.classList.add("pressed");
+
+   
+}
+</script>
+</html>

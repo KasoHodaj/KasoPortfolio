@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyPortfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <h2 draggable="true" class="logo">Kaso Hodaj</h2>
+        <nav class="navigation">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <a href="Kaso_Hodaj_Resume.pdf" download class="cv">Download CV</a>
+    </header>
+
+    <!-- HOME SECTION -->
+    <section id="home" class="home">
+        <div class="content">
+            <h2 class="cnt-title">Hey, I'm Kaso Hodaj</h2>
+            <h4>A Computer Engineering Student</h4>
+
+            <div class="social-icons">
+                <a href="https://www.facebook.com/kaso.hodaj1/"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/kaso_h/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/kaso-hodaj-697b91298/"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/KasoHodaj"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+        <div class="circle"></div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <div class="home-btn"><a href="#home">Home</a></div>
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1"><img src="about.jpg"></div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>Greetings! I'm a devoted computer engineering student on a thrilling journey to comprehend the
+                        intricacies of technology.
+                        My enthusiasm lies in the seamless integration of hardware and software, from crafting intricate
+                        circuits to delving into various programming languages.
+                    </p>
+                    <p>In addition to my technical prowess, I am a proactive and collaborative team player.
+                        Actively engaging in a spectrum of projects, both academic and personal, has not only
+                        refined my problem-solving skills
+                        but has also instilled in me a deep appreciation for the significance of teamwork in
+                        achieving success.
+                    </p>
+                    <p>As I traverse the exciting realm of computer engineering, I look forward to connecting with
+                        fellow enthusiasts, sharing experiences,
+                        and collectively contributing to the dynamic growth of our tech community.
+                    </p>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="openTab(event,'skills')">Skills</p>
+                        <p class="tab-links" onclick="openTab(event,'education')">Education</p>
+                        <p class="tab-links" onclick="openTab(event,'languages')">Languages</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li>Self Learning</li>
+                            <li>Organization skills</li>
+                            <li>Analytical Skills</li>
+                            <li>Problem Solving</li>
+                            <li>Teamwork</li>
+                            <li>Communication</li>
+                            <li>Easily Adaptable</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li>Internation Hellenic University</li>
+                            <li>Paxos High School</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="languages">
+                        <ul>
+                            <li>Albanian</li>
+                            <li>Greek</li>
+                            <li>English</li>
+                            <li>Italian</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects">
+        <div class="home-btn"><a href="#home">Home</a></div>
+        <div class="container">
+            <h1 class="sub-title">My Projects</h1>
+            <div class="work-list">
+                <div class="work">
+                    <a href="calculator.html"><img src="calculator.jpg"></a>
+                    <div class="layer">
+                        <h3>Calculator</h3>
+                    </div>
+                    <p>Calculator with basic function made <br> with Javascript</p>
+                </div>
+                <div class="work">
+                    <a href="calculator2.html"><img src="calculator.jpg"></a>
+                    <div class="layer">
+                        <h3>Calculator. Model_2</h3>
+                    </div>
+                    <p>An improved version of the Calculator <br> with Javascript</p>
+                </div>
+                <div class="work">
+                    <a href="musicPlayer.html"><img src="music.jpg"></a>
+                    <div class="layer">
+                        <h3>Music Player</h3>
+                    </div>
+                    <p>Music Player: 4 Seasons</p>
+                </div>
+                <div class="work">
+                    <a href="BlueAndYellow.html"><img src="art.jpg"></a>
+                    <div class="layer">
+                        <h3>Art I</h3>
+                    </div>
+                    <p>Composition with yellow and blue <br> by Piet Mondrian,1932</p>
+                </div>
+                <div class="work">
+                    <a href="composition5.html"><img src="art.jpg"></a>
+                    <div class="layer">
+                        <h3>Art II</h3>
+                    </div>
+                    <p>Composition 5 by Piet Mondrian, <br> 1938</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <div class="home-btn"><a href="#home">Home</a></div>
+        <div class="container">
+            <img src="./Images/mail.svg">
+            <form>
+                <label for="form" id="label-contact">Get in Touch</label>
+                <input id="input1" type="text" placeholder="Full Name" required>
+                <input id="input2" type="text" placeholder="Email" required>
+                <textarea id="field" cols="30" rows="10" placeholder="Message" required></textarea>
+                <input type="text" readonly id="output" >
+                <button onclick="submitForm()" id="actionBtn">Send</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
